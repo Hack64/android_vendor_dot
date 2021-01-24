@@ -119,5 +119,12 @@ PRODUCT_PACKAGES += \
     FodAnimationResources
 endif
 
+# Gapps
+ifeq ($(WITH_GAPPS), true)
+    WITH_GMS := true
+    $(call inherit-product, vendor/gms/products/gms.mk)
+    DOT_BUILD_TYPE := GAPPS
+endif
+
 # Dot_props
 $(call inherit-product, vendor/dot/config/dot_props.mk)
